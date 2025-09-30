@@ -13,7 +13,7 @@
 #define NUM_GEOGRAPHY 3
 
 
-
+// Creating and using structs: https://www.learningaboutelectronics.com/Articles/How-to-create-initialize-structure-C.php
 struct TestEntry {
     char question[1024];
     char choices [5][512];
@@ -26,12 +26,15 @@ int main() {
 
 
 /*
- * 1. select a topic (geography or history)
- * 2. randomy select a number 1-3, which maps to an array of questions
+ * 1. select a topic (geography or history) #TODO: Add more topics
+ * 2. randomy select a number 1-NUM_HISTORY/NUM_GEOGRAPHY, which maps to an array of questions  #TODO
  * 3. each element in the array will be a structure that has two fields
  *      - list of possible answers (for multiple choice)
  *      - the correct answer
  * 4. show the number of correct answers when program exits
+ *
+ * Later features:
+ *  - input a JSON file at compile time to embed the test contents into the binary (makes it portable + scalable)
  * */
 
 /*
@@ -77,37 +80,37 @@ int main() {
 
     struct TestEntry historyTest[NUM_HISTORY] = {
         {
-            "When did WW2 officially end?",
-            {"1939", "1946", "1912", "1945"},
-            3
+            .question = "When did WW2 officially end?",
+            .choices = {"1939", "1946", "1912", "1945"},
+            .answerIdx = 3
         },
         {
-            "Who was the captain of the Titanic?",
-            {"Dwight B. Eisenhower", "Edward John Smith", "Frank Lloyd Wright", "William S. Burroughs"},
-            1
+            .question = "Who was the captain of the Titanic?",
+            .choices = {"Dwight B. Eisenhower", "Edward John Smith", "Frank Lloyd Wright", "William S. Burroughs"},
+            .answerIdx = 1
         },
         {
-            "Who killed Julius Caesar?",
-            {"Marcus Junius Brutus", "Titus Livius", "Gaius Trebonius", "Pontius Aquila"},
-            0
+            .question = "Who killed Julius Caesar?",
+            .choices = {"Marcus Junius Brutus", "Titus Livius", "Gaius Trebonius", "Pontius Aquila"},
+            .answerIdx = 0
         }
     };
 
     struct TestEntry geographyTest[NUM_GEOGRAPHY] = {
         {
-            "Where does the Great Wall of China start?",
-            {"South Korea", "Hebei Province (China)", "Hong Kong", "Shanghai"},
-            1
+            .question = "Where does the Great Wall of China start?",
+            .choices = {"South Korea", "Hebei Province (China)", "Hong Kong", "Shanghai"},
+            .answerIdx = 1
         },
         {
-            "What continent is the country of Sudan located on?",
-            {"South America", "Antarctica", "Africa", "Australia"},
-            2
+            .question = "What continent is the country of Sudan located on?",
+            .choices = {"South America", "Antarctica", "Africa", "Australia"},
+            .answerIdx = 2
         },
         {
-            "What is the largest sea on Earth?",
-            {"Caribbean", "Mediterranean", "Philippine", "South China"},
-            1
+            .question = "What is the largest sea on Earth?",
+            .choices = {"Caribbean", "Mediterranean", "Philippine", "South China"},
+            .answerIdx = 1
         }
     };
 
