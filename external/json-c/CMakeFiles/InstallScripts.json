@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/aeth/Documents/School/Fall2025/CSCI1111/csci-1111-project-1/external/json-c/cmake_install.cmake",
+		"/home/aeth/Documents/School/Fall2025/CSCI1111/csci-1111-project-1/external/json-c/doc/cmake_install.cmake",
+		"/home/aeth/Documents/School/Fall2025/CSCI1111/csci-1111-project-1/external/json-c/tests/cmake_install.cmake",
+		"/home/aeth/Documents/School/Fall2025/CSCI1111/csci-1111-project-1/external/json-c/apps/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
