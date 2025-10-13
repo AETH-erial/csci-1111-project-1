@@ -1,3 +1,5 @@
+CFLAGS += $(shell pkg-config --cflags json-c)
+LDFLAGS += $(shell pkg-config --libs json-c)
 SRC = main.c
 OUTDIR = build
 
@@ -8,7 +10,7 @@ all: native linux-arm64 windows linux-x86_64 mac-arm64 mac-x86_64
 # Native build 
 native:
 	@echo "Building native popquiz..."
-	gcc $(SRC) -o $(OUTDIR)/popquiz_native
+	gcc $(CFLAGS) $(SRC) -o $(OUTDIR)/popquiz_native
 
 # Linux ARM64 build
 linux-arm64:

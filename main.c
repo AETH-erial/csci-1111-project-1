@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "./src/read_json.c"
 
 
 #define NUM_HISTORY 3
@@ -113,6 +114,8 @@ int main() {
             .answerIdx = 1
         }
     };
+    char fname[] = "./temp.json";
+    read_test_file(*fname);
 
 
     int choice;
