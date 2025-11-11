@@ -7,14 +7,14 @@
 
 #include <stdio.h>
 #include <string.h>
-#include "./src/read_json.c"
+#include "./src/read_json.h"
 
 
 #define NUM_HISTORY 3
 #define NUM_GEOGRAPHY 3
 
 
-// Creating and using structs: https://www.learningaboutelectronics.com/Articles/How-to-create-initialize-structure-C.php
+
 struct TestEntry {
     char question[1024];
     char choices [5][512];
@@ -115,7 +115,7 @@ int main() {
         }
     };
     char fname[] = "./temp.json";
-    read_test_file(*fname);
+    read_test_file(fname);
 
 
     int choice;
@@ -139,7 +139,7 @@ int main() {
         return 1;
     }
 
-    int correct;
+    int correct = 0;
 
     for (int i = 0; i < numQuestions; i++) {
         printf("\nQ%d: %s\n", i + 1, selectedTest[i].question);
