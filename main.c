@@ -1,7 +1,6 @@
 /*
  * Russell Hrubesky
  * Naimjon Ghafurov
- * Mohamed Abdi
  * */
 
 
@@ -164,5 +163,5 @@ int main() {
         }
     }
     printf("\nYou scored %d out of %d questions right.\nScore: %d/%d\n", correct, numQuestions, correct, numQuestions);
-
+    printf("you finished the test!\n");
 }
