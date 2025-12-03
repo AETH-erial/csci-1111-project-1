@@ -7,6 +7,10 @@ $(shell mkdir -p $(OUTDIR))
 
 all: native linux-arm64 windows linux-x86_64 mac-arm64 mac-x86_64
 
+install:
+	sudo cp $(OUTDIR)/* /usr/bin/
+
+
 # Native build 
 native:
 	@echo "Building native popquiz..."
