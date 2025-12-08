@@ -8,7 +8,7 @@
 #include <fcntl.h>
 #include <errno.h>
 
-#include <json.h>
+#include <json-c/json.h>
 
 #define BUF_MAX_SIZE  2048
 
