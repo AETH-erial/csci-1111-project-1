@@ -1,6 +1,9 @@
 CFLAGS += $(shell pkg-config --cflags json-c)
 LDFLAGS += $(shell pkg-config --libs json-c)
-SRC = main.c
+
+SRC = server.c json_io.c file_utils.c -ljson-c client.c
+SERVER = server_main.c
+CLIENT = client_main.c
 OUTDIR = build
 
 $(shell mkdir -p $(OUTDIR))
@@ -14,7 +17,8 @@ install:
 # Native build 
 native:
 	@echo "Building native popquiz..."
-	gcc $(CFLAGS) $(SRC) -o $(OUTDIR)/popquiz_native
+	gcc $(CFLAGS) $(SRC) $(SERVER) -o $(OUTDIR)/popquiz_server
+	gcc $(CFLAGS) $(SRC) $(CLIENT) -o $(OUTDIR)/popquiz_client 
 
 # Linux ARM64 build
 linux-arm64:
